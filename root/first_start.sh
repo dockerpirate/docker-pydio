@@ -19,4 +19,3 @@ chmod +x /etc/periodic/15min/git
 
 mv /base.conf.php /config/www/pydio/
 mv /root /etc/crontabs/
-reboot
