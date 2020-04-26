@@ -4,10 +4,6 @@
 
 ## Supported Architectures
 
-Our images support multiple architectures such as `x86-64`, `arm64` and `armhf`. We utilise the docker manifest for multi-platform awareness. More information is available from docker [here](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md#manifest-list) and our announcement [here](https://blog.linuxserver.io/2019/02/21/the-lsio-pipeline-project/).
-
-Simply pulling `linuxserver/pydio` should retrieve the correct image for your arch, but you can also pull specific arch images via tags.
-
 The architectures supported by this image are:
 
 | Architecture | Tag |
@@ -23,7 +19,7 @@ Here are some example snippets to help you get started creating a container.
 ### docker
 
 ```
-docker create \
+docker run -d \
   --name=pydio \
   -e PUID=1000 \
   -e PGID=1000 \
@@ -31,6 +27,7 @@ docker create \
   -p 8888:443 \
   -v <path to data>:/config \
   -v <path to data>:/data \
+  -v <path to data>:/data2 \
   --restart unless-stopped \
   dockerpirate/docker-pydio 
 ```
@@ -47,6 +44,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e TZ=Europe/London` | Specify a timezone to use EG Europe/London. |
 | `-v /config` | Where pydio should store it's configuration files. |
 | `-v /data` | Where pydio should store uploaded files. |
+| `-v /data2` | Second Storage - Git versionning activated |
 
 ## Environment variables from files (Docker secrets)
 
