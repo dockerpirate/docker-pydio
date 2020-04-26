@@ -1,16 +1,3 @@
-# [linuxserver/pydio](https://github.com/linuxserver/docker-pydio)
-
-[![GitHub Stars](https://img.shields.io/github/stars/linuxserver/docker-pydio.svg?style=flat-square&color=E68523&logo=github&logoColor=FFFFFF)](https://github.com/linuxserver/docker-pydio)
-[![GitHub Release](https://img.shields.io/github/release/linuxserver/docker-pydio.svg?style=flat-square&color=E68523&logo=github&logoColor=FFFFFF)](https://github.com/linuxserver/docker-pydio/releases)
-[![GitHub Package Repository](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=GitHub%20Package&logo=github&logoColor=FFFFFF)](https://github.com/linuxserver/docker-pydio/packages)
-[![GitLab Container Registry](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=GitLab%20Registry&logo=gitlab&logoColor=FFFFFF)](https://gitlab.com/Linuxserver.io/docker-pydio/container_registry)
-[![Quay.io](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=Quay.io)](https://quay.io/repository/linuxserver.io/pydio)
-[![MicroBadger Layers](https://img.shields.io/microbadger/layers/linuxserver/pydio.svg?style=flat-square&color=E68523)](https://microbadger.com/images/linuxserver/pydio "Get your own version badge on microbadger.com")
-[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/pydio.svg?style=flat-square&color=E68523&label=pulls&logo=docker&logoColor=FFFFFF)](https://hub.docker.com/r/linuxserver/pydio)
-[![Docker Stars](https://img.shields.io/docker/stars/linuxserver/pydio.svg?style=flat-square&color=E68523&label=stars&logo=docker&logoColor=FFFFFF)](https://hub.docker.com/r/linuxserver/pydio)
-[![Build Status](https://ci.linuxserver.io/view/all/job/Docker-Pipeline-Builders/job/docker-pydio/job/master/badge/icon?style=flat-square)](https://ci.linuxserver.io/job/Docker-Pipeline-Builders/job/docker-pydio/job/master/)
-[![](https://lsio-ci.ams3.digitaloceanspaces.com/linuxserver/pydio/latest/badge.svg)](https://lsio-ci.ams3.digitaloceanspaces.com/linuxserver/pydio/latest/index.html)
-
 [Pydio](https://pydio.com/) (formerly AjaXplorer) is a mature open source software solution for file sharing and synchronization. With intuitive user interfaces (web / mobile / desktop), Pydio provides enterprise-grade features to gain back control and privacy of your data: user directory connectors, legacy filesystems drivers, comprehensive admin interface, and much more.
 
 [![pydio](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pydio-banner.png)](https://pydio.com/)
@@ -115,3 +102,7 @@ We publish various [Docker Mods](https://github.com/linuxserver/docker-mods) to 
 * image version number
   * `docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/pydio`
 
+
+## Copyright & Licence by
+
+# [linuxserver/pydio](https://github.com/linuxserver/docker-pydio)
