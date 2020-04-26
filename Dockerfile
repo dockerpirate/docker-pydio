@@ -56,6 +56,9 @@ RUN \
 	unzip \
 	wget \
 	xz && \
+	pear channel-discover pear.phing.info && \
+	pear install phing/phing && \
+	pear install VersionControl_Git-alpha && \
  if [[ -e /usr/lib/php7/ssh2.so && ! -e /usr/lib/php7/modules/ssh2.so ]]; then \
 	ln -s /usr/lib/php7/ssh2.so  /usr/lib/php7/modules/ssh2.so ; fi && \
  echo "**** install mailmimedecode ****" && \
@@ -79,7 +82,7 @@ RUN \
  echo ${PYDIO_VERSION} > /version.txt
 
 # copy local files
-COPY root/ /
+COPY root/ / 
 
 # ports and volumes
 EXPOSE 80 443
