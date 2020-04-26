@@ -8,8 +8,9 @@ The architectures supported by this image are:
 
 | Architecture | Tag |
 | :----: | --- |
-| arm64 | arm64v8-latest |
-| armhf | arm32v7-latest |
+| arm64 | linux/arm64 |
+| arm_v7 | linux/arm/v7 |
+| arm_v6 | linux/arm/v6 |
 
 
 ## Usage
