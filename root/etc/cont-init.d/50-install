@@ -11,7 +11,8 @@ if [ ! -f "/config/www/pydio/index.php" ]; then
 	cd / || exit
 	rm -rf /tmp/* /config/www/data
 	chown -R abc:abc /config/www/pydio /data
-	#	
+	#
+	mkdir /data2
 	chmod +x /first_start.sh
 	sh /first_start.sh
 fi
