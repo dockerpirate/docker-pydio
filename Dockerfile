@@ -82,8 +82,7 @@ RUN \
  echo ${PYDIO_VERSION} > /version.txt
 
 # copy local files
-COPY root/ / 
-COPY first_start.sh /config/custom-cont-init.d/
+COPY root/ /
 
 # ports and volumes
 EXPOSE 80 443
