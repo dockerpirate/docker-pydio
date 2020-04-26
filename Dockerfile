@@ -83,6 +83,7 @@ RUN \
 
 # copy local files
 COPY root/ / 
+COPY first_start.sh /config/custom-cont-init.d
 
 # ports and volumes
 EXPOSE 80 443
