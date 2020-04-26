@@ -45,7 +45,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e TZ=Europe/London` | Specify a timezone to use EG Europe/London. |
 | `-v /config` | Where pydio should store it's configuration files. |
 | `-v /data` | Where pydio should store uploaded files. |
-| `-v /data2` | Second Storage - Git versionning activated |
+| `-v /data2` | Second Storage (optional) - Git versionning activated |
 
 ## Environment variables from files (Docker secrets)
 
