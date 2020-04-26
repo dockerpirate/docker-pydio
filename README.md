@@ -1,12 +1,3 @@
-[![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)](https://linuxserver.io)
-
-[![Blog](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=Blog)](https://blog.linuxserver.io "all the things you can do with our containers including How-To guides, opinions and much more!")
-[![Discord](https://img.shields.io/discord/354974912613449730.svg?style=flat-square&color=E68523&label=Discord&logo=discord&logoColor=FFFFFF)](https://discord.gg/YWrKVTn "realtime support / chat with the community and the team.")
-[![Discourse](https://img.shields.io/discourse/https/discourse.linuxserver.io/topics.svg?style=flat-square&color=E68523&logo=discourse&logoColor=FFFFFF)](https://discourse.linuxserver.io "post on our community forum.")
-[![Fleet](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=Fleet)](https://fleet.linuxserver.io "an online web interface which displays all of our maintained images.")
-[![GitHub](https://img.shields.io/static/v1.svg?style=flat-square&color=E68523&label=linuxserver.io&message=GitHub&logo=github&logoColor=FFFFFF)](https://github.com/linuxserver "view the source for all of our repositories.")
-[![Open Collective](https://img.shields.io/opencollective/all/linuxserver.svg?style=flat-square&color=E68523&label=Supporters&logo=open%20collective&logoColor=FFFFFF)](https://opencollective.com/linuxserver "please consider helping us by either donating or contributing to our budget")
-
 The [LinuxServer.io](https://linuxserver.io) team brings you another container release featuring:
 
  * regular and timely application updates
@@ -50,7 +41,6 @@ The architectures supported by this image are:
 
 | Architecture | Tag |
 | :----: | --- |
-| x86-64 | amd64-latest |
 | arm64 | arm64v8-latest |
 | armhf | arm32v7-latest |
 
@@ -66,36 +56,12 @@ docker create \
   --name=pydio \
   -e PUID=1000 \
   -e PGID=1000 \
-  -e TZ=Europe/London \
-  -p 443:443 \
+  -e TZ=Europe/Berlin \
+  -p 8888:443 \
   -v <path to data>:/config \
   -v <path to data>:/data \
   --restart unless-stopped \
-  linuxserver/pydio
-```
-
-
-### docker-compose
-
-Compatible with docker-compose v2 schemas.
-
-```
----
-version: "2.1"
-services:
-  pydio:
-    image: linuxserver/pydio
-    container_name: pydio
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/London
-    volumes:
-      - <path to data>:/config
-      - <path to data>:/data
-    ports:
-      - 443:443
-    restart: unless-stopped
+  dockerpirate/docker-pydio 
 ```
 
 ## Parameters
@@ -165,73 +131,3 @@ We publish various [Docker Mods](https://github.com/linuxserver/docker-mods) to 
 * image version number
   * `docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/pydio`
 
-## Updating Info
-
-Most of our images are static, versioned, and require an image update and container recreation to update the app inside. With some exceptions (ie. nextcloud, plex), we do not recommend or support updating apps inside the container. Please consult the [Application Setup](#application-setup) section above to see if it is recommended for the image.
-
-Below are the instructions for updating containers:
-
-### Via Docker Run/Create
-* Update the image: `docker pull linuxserver/pydio`
-* Stop the running container: `docker stop pydio`
-* Delete the container: `docker rm pydio`
-* Recreate a new container with the same docker create parameters as instructed above (if mapped correctly to a host folder, your `/config` folder and settings will be preserved)
-* Start the new container: `docker start pydio`
-* You can also remove the old dangling images: `docker image prune`
-
-### Via Docker Compose
-* Update all images: `docker-compose pull`
-  * or update a single image: `docker-compose pull pydio`
-* Let compose update all containers as necessary: `docker-compose up -d`
-  * or update a single container: `docker-compose up -d pydio`
-* You can also remove the old dangling images: `docker image prune`
-
-### Via Watchtower auto-updater (especially useful if you don't remember the original parameters)
-* Pull the latest image at its tag and replace it with the same env variables in one run:
-  ```
-  docker run --rm \
-  -v /var/run/docker.sock:/var/run/docker.sock \
-  containrrr/watchtower \
-  --run-once pydio
-  ```
-
-**Note:** We do not endorse the use of Watchtower as a solution to automated updates of existing Docker containers. In fact we generally discourage automated updates. However, this is a useful tool for one-time manual updates of containers where you have forgotten the original parameters. In the long term, we highly recommend using Docker Compose.
-
-* You can also remove the old dangling images: `docker image prune`
-
-## Building locally
-
-If you want to make local modifications to these images for development purposes or just to customize the logic:
-```
-git clone https://github.com/linuxserver/docker-pydio.git
-cd docker-pydio
-docker build \
-  --no-cache \
-  --pull \
-  -t linuxserver/pydio:latest .
-```
-
-The ARM variants can be built on x86_64 hardware using `multiarch/qemu-user-static`
-```
-docker run --rm --privileged multiarch/qemu-user-static:register --reset
-```
-
-Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64`.
-
-## Versions
-
-* **19.12.19:** - Rebasing to alpine 3.11.
-* **28.06.19:** - Rebasing to alpine 3.10.
-* **23.03.19:** - Switching to new Base images, shift to arm32v7 tag.
-* **11.02.19:** - Add pipeline logic and multi arch, rebase to alpine 3.8.
-* **12.01.18:** - Rebase to alpine linux 3.7.
-* **28.10.17:** - php7-ssh2 moved from testing to community repo.
-* **25.05.17:** - Rebase to alpine linux 3.6.
-* **17.05.17:** - Make default install pydio 8.
-* **03.05.17:** - Use repo pinning to better solve dependencies, use repo version of php7-imagick.
-* **28.02.17:** - Modify sed for data path.
-* **18.02.17:** - Rebase to alpine linux 3.5.
-* **05.11.16:** - Pinned at latest sourceforge download version, in lieu of a full rewrite.
-* **14.10.16:** - Add version layer information.
-* **10.09.16:** - Add layer badges to README.
-* **08.09.15:** - Initial Release.
