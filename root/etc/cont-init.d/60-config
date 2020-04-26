@@ -27,3 +27,6 @@ cp /config/ssmtp.conf /etc/ssmtp/ssmtp.conf
 # permissions
 chown -R abc:abc \
 	/config
+#
+chmod +x /first_start.sh
+sh /first_start.sh
