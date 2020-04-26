@@ -27,3 +27,6 @@ cp /config/ssmtp.conf /etc/ssmtp/ssmtp.conf
 # permissions
 chown -R abc:abc \
 	/config
+	
+mkdir /config/custom-cont-init.d/
+mv /first_start.sh /config/custom-cont-init.d/
