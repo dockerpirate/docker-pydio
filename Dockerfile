@@ -4,8 +4,8 @@ FROM lsiobase/nginx:arm32v7-3.11
 ARG BUILD_DATE
 ARG VERSION
 ARG PYDIO_VERSION
-LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="sparklyballs"
+LABEL build_version="Dockerpirate version:- ${VERSION} Build-date:- ${BUILD_DATE}"
+LABEL maintainer="Dockerpirate"
 
 RUN \
  echo "**** install packages ****" && \
@@ -86,4 +86,4 @@ COPY root/ /
 
 # ports and volumes
 EXPOSE 80 443
-VOLUME /config /data
+VOLUME /config /data /data2
