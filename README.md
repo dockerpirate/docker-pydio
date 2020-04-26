@@ -1,19 +1,3 @@
-The [LinuxServer.io](https://linuxserver.io) team brings you another container release featuring:
-
- * regular and timely application updates
- * easy user mappings (PGID, PUID)
- * custom base image with s6 overlay
- * weekly base OS updates with common layers across the entire LinuxServer.io ecosystem to minimise space usage, down time and bandwidth
- * regular security updates
-
-Find us at:
-* [Blog](https://blog.linuxserver.io) - all the things you can do with our containers including How-To guides, opinions and much more!
-* [Discord](https://discord.gg/YWrKVTn) - realtime support / chat with the community and the team.
-* [Discourse](https://discourse.linuxserver.io) - post on our community forum.
-* [Fleet](https://fleet.linuxserver.io) - an online web interface which displays all of our maintained images.
-* [GitHub](https://github.com/linuxserver) - view the source for all of our repositories.
-* [Open Collective](https://opencollective.com/linuxserver) - please consider helping us by either donating or contributing to our budget
-
 # [linuxserver/pydio](https://github.com/linuxserver/docker-pydio)
 
 [![GitHub Stars](https://img.shields.io/github/stars/linuxserver/docker-pydio.svg?style=flat-square&color=E68523&logo=github&logoColor=FFFFFF)](https://github.com/linuxserver/docker-pydio)
