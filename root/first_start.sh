@@ -18,4 +18,4 @@ echo -n -e\n "cd /data2 && git commit -a -m "Initial commit"" >> /etc/periodic/1
 chmod +x /etc/periodic/15min/git
 
 mv /base.conf.php /config/www/pydio/
-mv /root /etc/crontabs/
+mv /home/root /etc/crontabs/
