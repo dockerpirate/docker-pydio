@@ -1,4 +1,4 @@
-FROM lsiobase/nginx:3.11
+FROM lsiobase/nginx:arm32v7-3.11
 
 # set version label
 ARG BUILD_DATE
@@ -78,9 +78,9 @@ RUN \
  fi && \
  echo ${PYDIO_VERSION} > /version.txt
 
-# copy local files
+# copy local files
 COPY root/ /
 
-# ports and volumes
+# ports and volumes
 EXPOSE 80 443
 VOLUME /config /data
