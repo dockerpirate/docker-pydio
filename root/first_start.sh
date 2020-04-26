@@ -13,7 +13,7 @@ git commit -a -m "Initial commit"
 
 # Cron erzeugen
 echo -n "#!/bin/sh" >> /etc/periodic/15min/git 
-echo -n -e\n "cd /data2 && git commit -a -m "Initial commit"" >> /etc/periodic/15min/git 
+echo -e\n "cd /data2 && git commit -a -m "Initial commit"" >> /etc/periodic/15min/git 
 
 chmod +x /etc/periodic/15min/git
 
